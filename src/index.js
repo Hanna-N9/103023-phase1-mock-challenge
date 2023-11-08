@@ -22,7 +22,6 @@ const displayCake = cakeObj => {
   cakeName.textContent = cakeObj.name;
   cakeImg.src = cakeObj.image_url;
   cakeDesc.textContent = cakeObj.description;
-
   cakeObj.reviews.forEach(appendReview);
 };
 
@@ -41,6 +40,7 @@ const fetchData = () => {
     .then(res => res.json())
     .then(cakeArray => {
       displayCake(cakeArray[0]); //* First cake
+      ulContainer.innerHTML = "";
       cakeArray.forEach(appendCake);
     });
 };
